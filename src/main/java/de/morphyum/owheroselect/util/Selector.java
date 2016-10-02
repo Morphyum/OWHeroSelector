@@ -111,7 +111,7 @@ public class Selector {
 			pickList.add("Perfect Setup!");
 		} else {
 			for (Hero hero : heroList) {
-				pickList.add(hero.getName());
+				pickList.add("<br>" + hero.getName());
 			}
 		}
 		return pickList;
@@ -177,7 +177,7 @@ public class Selector {
 		List<String> pickList = new ArrayList<String>();
 		for (Hero hero : heroes) {
 			if (hero.getHealer() == true && !inputList.contains(hero.getName())) {
-				pickList.add(hero.getName());
+				pickList.add("<br>" + hero.getName());
 			}
 		}
 
@@ -189,7 +189,7 @@ public class Selector {
 		List<String> pickList = new ArrayList<String>();
 		for (Hero hero : heroes) {
 			if (hero.getSustain() >= neededSustain && !inputList.contains(hero.getName())) {
-				pickList.add(hero.getName());
+				pickList.add("<br>" + hero.getName());
 			}
 		}
 
@@ -201,7 +201,7 @@ public class Selector {
 		List<String> pickList = new ArrayList<String>();
 		for (Hero hero : heroes) {
 			if (hero.getOffUltOut() == true && !inputList.contains(hero.getName())) {
-				pickList.add(hero.getName());
+				pickList.add("<br>" + hero.getName());
 			}
 		}
 
@@ -213,7 +213,7 @@ public class Selector {
 		List<String> pickList = new ArrayList<String>();
 		for (Hero hero : heroes) {
 			if (hero.getInitiation() == true && !inputList.contains(hero.getName())) {
-				pickList.add(hero.getName());
+				pickList.add("<br>" + hero.getName());
 			}
 		}
 
@@ -225,7 +225,7 @@ public class Selector {
 		List<String> pickList = new ArrayList<String>();
 		for (Hero hero : heroes) {
 			if (hero.getDamage() >= neededDamage && !inputList.contains(hero.getName())) {
-				pickList.add(hero.getName());
+				pickList.add("<br>" + hero.getName());
 			}
 		}
 
@@ -238,54 +238,54 @@ public class Selector {
 		if (totalDamage < MIN_DAMAGE) {
 			pickList = selectDamageHeroes(MIN_DAMAGE - totalDamage, inputList);
 			if (pickList.isEmpty()) {
-				pickList.add(0, "No Single Hero can Help!! ");
+				pickList.add(0, "<br>No Single Hero can Help!! ");
 			} else {
-				pickList.add(0, "No perfect fit Emergency More Damage: ");
+				pickList.add(0, "<br>No perfect fit, Most Important More Damage: ");
 			}
 		} else if (totalInitiation == false) {
 			pickList = selectInitHeroes(inputList);
 			if (pickList.isEmpty()) {
-				pickList.add(0, "No Single Hero can Help!! ");
+				pickList.add(0, "<br>No Single Hero can Help!! ");
 			} else {
-				pickList.add(0, "No perfect fit Emergency Initiator: ");
+				pickList.add(0, "<br>No perfect fit, Most Important Initiator: ");
 			}
 		} else if (totalOffUltOut == false) {
 			pickList = selectUltOffHeroes(inputList);
 			if (pickList.isEmpty()) {
-				pickList.add(0, "No Single Hero can Help!! ");
+				pickList.add(0, "<br>No Single Hero can Help!! ");
 			} else {
-				pickList.add(0, "No perfect fit Emergency Counter Ult: ");
+				pickList.add(0, "<br>No perfect fit, Most Important Counter Ult: ");
 			}
 		} else if (totalHealer == false) {
 			pickList = selectHealerHeroes(inputList);
 			if (pickList.isEmpty()) {
-				pickList.add(0, "No Single Hero can Help!! ");
+				pickList.add(0, "<br>No Single Hero can Help!! ");
 			} else {
-				pickList.add(0, "No perfect fit Emergency Healer: ");
+				pickList.add(0, "<br>No perfect fit, Most Important Healer: ");
 			}
 		} else if (totalSustain < MIN_SUSTAIN) {
 			pickList = selectSustainHeroes(MIN_SUSTAIN - totalSustain, inputList);
 			if (pickList.isEmpty()) {
-				pickList.add(0, "No Single Hero can Help!! ");
+				pickList.add(0, "<br>No Single Hero can Help!! ");
 			} else {
-				pickList.add(0, "No perfect fit Emergency More Sustain: ");
+				pickList.add(0, "<br>No perfect fit, Most Important More Sustain: ");
 			}
 		}
 
 		if (totalDamage < 3.5) {
-			pickList.add(0, "Damage ");
+			pickList.add(0, "Damage |");
 		}
 		if (totalInitiation == false) {
-			pickList.add(0, "Initiator ");
+			pickList.add(0, "Initiator |");
 		}
 		if (totalOffUltOut == false) {
-			pickList.add(0, "Counter Ult ");
+			pickList.add(0, "Counter Ult |");
 		}
 		if (totalHealer == false) {
-			pickList.add(0, "Healer ");
+			pickList.add(0, "Healer |");
 		}
 		if (totalSustain < 3.5) {
-			pickList.add(0, "Sustain ");
+			pickList.add(0, "Sustain |");
 		}
 		pickList.add(0, "Missing: ");
 		return pickList;

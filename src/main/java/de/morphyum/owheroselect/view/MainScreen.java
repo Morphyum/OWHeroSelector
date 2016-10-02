@@ -37,22 +37,28 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.0");
+		setTitle("Overwatch Hero Selector v1.0.1");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 720, 145);
+		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(1, 0, 0, 0));
-
 		Object[] items = { new ImageIcon(this.getClass().getResource("/images/Icon-mccree.png")), new ImageIcon("add16.gif"), new ImageIcon("copy16.gif") };
 
-		final JComboBox comboBox = new JComboBox();
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new BorderLayout(0, 0));
 
+		final JLabel lblNewLabel = new JLabel("Waiting for Select");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(lblNewLabel, BorderLayout.CENTER);
+		
+		final JComboBox comboBox = new JComboBox();
 		comboBox.setMaximumRowCount(15);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "", "Ana", "Bastion", "D.Va", "Genji", "Hanzo", "Junkrat", "Lucio", "McCree", "Mei", "Mercy",
 				"Pharah", "Reaper", "Reinhardt", "Roadhog", "Soldier", "Symmetra", "Torbjörn", "Tracer", "Widowmaker", "Winston", "Zarya", "Zenyatta" }));
@@ -92,14 +98,6 @@ public class MainScreen extends JFrame {
 						"Reaper", "Reinhardt", "Roadhog", "Soldier", "Symmetra", "Torbjörn", "Tracer", "Widowmaker", "Winston", "Zarya", "Zenyatta" }));
 		panel.add(comboBox_5);
 
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.SOUTH);
-		panel_1.setLayout(new BorderLayout(0, 0));
-
-		final JLabel lblNewLabel = new JLabel("Waiting for Select");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(lblNewLabel, BorderLayout.SOUTH);
-
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
@@ -130,6 +128,8 @@ public class MainScreen extends JFrame {
 				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
+
+		
 
 	}
 
