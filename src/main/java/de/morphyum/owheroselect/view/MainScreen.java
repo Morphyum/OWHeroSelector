@@ -37,7 +37,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.0.2");
+		setTitle("Overwatch Hero Selector v1.0.3");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();

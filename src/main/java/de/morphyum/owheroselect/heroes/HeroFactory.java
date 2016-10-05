@@ -90,7 +90,7 @@ public class HeroFactory {
 		}
 
 		case "Zarya": {
-			hero = new Hero(1, false, false, 1, "Zarya", false);
+			hero = new Hero(1, true, false, 1, "Zarya", false);
 			break;
 		}
 
