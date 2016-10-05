@@ -55,7 +55,7 @@ public class HeroFactory {
 		}
 
 		case "Mei": {
-			hero = new Hero(0.5, false, false, 0.25, "Mei", false);
+			hero = new Hero(0.5, false, false, 0.5, "Mei", false);
 			break;
 		}
 
