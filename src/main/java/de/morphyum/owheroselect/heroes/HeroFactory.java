@@ -60,12 +60,12 @@ public class HeroFactory {
 		}
 
 		case "Torbjörn": {
-			hero = new Hero(1, false, false, 0.25, "Torbjörn", false);
+			hero = new Hero(1.25, false, false, 0.25, "Torbjörn", false);
 			break;
 		}
 
 		case "Widowmaker": {
-			hero = new Hero(0.5, false, false, 0, "Widowmaker", false);
+			hero = new Hero(0.75, false, false, 0, "Widowmaker", false);
 			break;
 		}
 
@@ -75,7 +75,7 @@ public class HeroFactory {
 		}
 
 		case "Reinhardt": {
-			hero = new Hero(0, true, true, 0.5, "Reinhardt", false);
+			hero = new Hero(0.5, true, true, 0.5, "Reinhardt", false);
 			break;
 		}
 
@@ -95,7 +95,7 @@ public class HeroFactory {
 		}
 
 		case "Ana": {
-			hero = new Hero(0.5, true, false, 1, "Ana", true);
+			hero = new Hero(0.75, true, false, 1, "Ana", true);
 			break;
 		}
 
@@ -105,7 +105,7 @@ public class HeroFactory {
 		}
 
 		case "Mercy": {
-			hero = new Hero(0, false, true, 1.5, "Mercy", true);
+			hero = new Hero(0.25, false, true, 1.5, "Mercy", true);
 			break;
 		}
 
@@ -115,7 +115,7 @@ public class HeroFactory {
 		}
 
 		case "Zenyatta": {
-			hero = new Hero(0.5, false, true, 0.5, "Zenyatta", true);
+			hero = new Hero(0.75, false, true, 0.5, "Zenyatta", true);
 			break;
 		}
 

@@ -28,6 +28,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import javax.swing.JToggleButton;
 
 public class MainScreen extends JFrame {
 
@@ -37,7 +38,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.0.3");
+		setTitle("Overwatch Hero Selector v1.0.4");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();
@@ -50,6 +51,7 @@ public class MainScreen extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
+
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(new BorderLayout(0, 0));
@@ -57,7 +59,7 @@ public class MainScreen extends JFrame {
 		final JLabel lblNewLabel = new JLabel("Waiting for Select");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblNewLabel, BorderLayout.CENTER);
-		
+
 		final JComboBox comboBox = new JComboBox();
 		comboBox.setMaximumRowCount(15);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "", "Ana", "Bastion", "D.Va", "Genji", "Hanzo", "Junkrat", "Lucio", "McCree", "Mei", "Mercy",
@@ -100,36 +102,54 @@ public class MainScreen extends JFrame {
 
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
+				if (comboBox.getSelectedItem() != null)
+					startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
 		comboBox_1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
+				if (comboBox_1.getSelectedItem() != null)
+					startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
 		comboBox_2.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
+				if (comboBox_2.getSelectedItem() != null)
+					startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
 		comboBox_3.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
+				if (comboBox_3.getSelectedItem() != null)
+					startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
 		comboBox_4.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
+				if (comboBox_4.getSelectedItem() != null)
+					startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
 		comboBox_5.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
+				if (comboBox_5.getSelectedItem() != null)
+					startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
 
-		
+		JToggleButton tglbtnResetTeam = new JToggleButton("Reset Team");
+		tglbtnResetTeam.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				comboBox.setSelectedItem(comboBox.getItemAt(0));
+				comboBox_1.setSelectedItem(comboBox_1.getItemAt(0));
+				comboBox_2.setSelectedItem(comboBox_2.getItemAt(0));
+				comboBox_3.setSelectedItem(comboBox_3.getItemAt(0));
+				comboBox_4.setSelectedItem(comboBox_4.getItemAt(0));
+				comboBox_5.setSelectedItem(comboBox_5.getItemAt(0));
+				lblNewLabel.setText("Team reset!");
+			}
+		});
+		panel_1.add(tglbtnResetTeam, BorderLayout.SOUTH);
 
 	}
 
