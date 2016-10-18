@@ -8,8 +8,8 @@ import de.morphyum.owheroselect.heroes.HeroFactory;
 
 public class Selector {
 
-	final static double MIN_DAMAGE = 3.5;
-	final static double MIN_SUSTAIN = 3.25;
+	final static double MIN_DAMAGE = 3;
+	final static double MIN_SUSTAIN = 2.5;
 
 	public static List<String> pickHero(String string, String string2, String string3, String string4, String string5, String string6) {
 		List<String> inputList = new ArrayList<String>();

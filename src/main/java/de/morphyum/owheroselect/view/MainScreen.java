@@ -25,6 +25,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
@@ -38,7 +39,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.0.4");
+		setTitle("Overwatch Hero Selector v1.1");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();
@@ -51,14 +52,12 @@ public class MainScreen extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		
+				final JLabel lblNewLabel = new JLabel("Waiting for Select");
+				contentPane.add(lblNewLabel, BorderLayout.CENTER);
+				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(new BorderLayout(0, 0));
-
-		final JLabel lblNewLabel = new JLabel("Waiting for Select");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(lblNewLabel, BorderLayout.CENTER);
+		
 
 		final JComboBox comboBox = new JComboBox();
 		comboBox.setMaximumRowCount(15);
@@ -136,21 +135,42 @@ public class MainScreen extends JFrame {
 					startSelection(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5, lblNewLabel);
 			}
 		});
-
-		JToggleButton tglbtnResetTeam = new JToggleButton("Reset Team");
-		tglbtnResetTeam.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				comboBox.setSelectedItem(comboBox.getItemAt(0));
-				comboBox_1.setSelectedItem(comboBox_1.getItemAt(0));
-				comboBox_2.setSelectedItem(comboBox_2.getItemAt(0));
-				comboBox_3.setSelectedItem(comboBox_3.getItemAt(0));
-				comboBox_4.setSelectedItem(comboBox_4.getItemAt(0));
-				comboBox_5.setSelectedItem(comboBox_5.getItemAt(0));
-				lblNewLabel.setText("Team reset!");
-			}
-		});
-		panel_1.add(tglbtnResetTeam, BorderLayout.SOUTH);
-
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.SOUTH);
+		panel_1.setLayout(new BorderLayout(0, 0));
+		
+				JToggleButton tglbtnResetTeam = new JToggleButton("Reset Team");
+				panel_1.add(tglbtnResetTeam, BorderLayout.CENTER);
+				
+				JButton btnRandom = new JButton("Random");
+				btnRandom.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Random rand = new Random();
+						int randomhero = rand.nextInt(21)+1;
+						comboBox.setSelectedItem(comboBox.getItemAt(randomhero));
+						randomhero = rand.nextInt(22)+1;
+						comboBox_1.setSelectedItem(comboBox_1.getItemAt(randomhero));
+						randomhero = rand.nextInt(22)+1;
+						comboBox_2.setSelectedItem(comboBox_2.getItemAt(randomhero));
+						randomhero = rand.nextInt(22)+1;
+						comboBox_3.setSelectedItem(comboBox_3.getItemAt(randomhero));
+						randomhero = rand.nextInt(22)+1;
+						comboBox_4.setSelectedItem(comboBox_4.getItemAt(randomhero));
+						randomhero = rand.nextInt(22)+1;
+						comboBox_5.setSelectedItem(comboBox_5.getItemAt(randomhero));
+						lblNewLabel.setText("Team Randomized!");
+					}
+				});
+				panel_1.add(btnRandom, BorderLayout.WEST);
+				
+				JButton btnNewButton = new JButton("Auto Team");
+				panel_1.add(btnNewButton, BorderLayout.EAST);
+				tglbtnResetTeam.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						lblNewLabel.setText("Function not yet implemented!");
+					}
+				});
 	}
 
 	private void startSelection(JComboBox comboBox, JComboBox comboBox_1, JComboBox comboBox_2, JComboBox comboBox_3, JComboBox comboBox_4,
