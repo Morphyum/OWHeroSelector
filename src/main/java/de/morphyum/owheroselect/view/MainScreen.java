@@ -39,7 +39,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.1");
+		setTitle("Overwatch Hero Selector v1.1.1");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();
@@ -141,6 +141,17 @@ public class MainScreen extends JFrame {
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 				JToggleButton tglbtnResetTeam = new JToggleButton("Reset Team");
+				tglbtnResetTeam.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						comboBox.setSelectedItem(comboBox.getItemAt(0));
+						comboBox_1.setSelectedItem(comboBox_1.getItemAt(0));
+						comboBox_2.setSelectedItem(comboBox_2.getItemAt(0));
+						comboBox_3.setSelectedItem(comboBox_3.getItemAt(0));
+						comboBox_4.setSelectedItem(comboBox_4.getItemAt(0));
+						comboBox_5.setSelectedItem(comboBox_5.getItemAt(0));
+						lblNewLabel.setText("Team Reset!");
+					}
+				});
 				panel_1.add(tglbtnResetTeam, BorderLayout.CENTER);
 				
 				JButton btnRandom = new JButton("Random");
