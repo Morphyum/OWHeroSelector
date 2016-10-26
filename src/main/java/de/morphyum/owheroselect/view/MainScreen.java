@@ -39,7 +39,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.2");
+		setTitle("Overwatch Hero Selector v1.2.1");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();
@@ -179,7 +179,7 @@ public class MainScreen extends JFrame {
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						autoSelect(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5);
-						lblNewLabel.setText("Function not yet implemented!");
+						lblNewLabel.setText("Team automatically filled!");
 					}
 				});
 				panel_1.add(btnNewButton, BorderLayout.EAST);
