@@ -249,7 +249,7 @@ public class Selector {
 
 		double totalStats = 0;
 		for (Hero hero : picks) {
-			if ((hero.getDamage() + hero.getDamage()) > totalStats) {
+			if ((hero.getDamage() + hero.getSustain()) > totalStats) {
 				pickList = hero.getName();
 				totalStats = hero.getDamage() + hero.getSustain();
 			}
@@ -278,7 +278,7 @@ public class Selector {
 
 		double totalStats = 0;
 		for (Hero hero : picks) {
-			if ((hero.getDamage() + hero.getDamage()) > totalStats) {
+			if ((hero.getDamage() + hero.getSustain()) > totalStats) {
 				pickList = hero.getName();
 				totalStats = hero.getDamage() + hero.getSustain();
 			}
@@ -299,7 +299,7 @@ public class Selector {
 
 		double totalStats = 0;
 		for (Hero hero : picks) {
-			if ((hero.getDamage() + hero.getDamage()) > totalStats) {
+			if ((hero.getDamage() + hero.getSustain()) > totalStats) {
 				pickList = hero.getName();
 				totalStats = hero.getDamage() + hero.getSustain();
 			}
@@ -320,7 +320,7 @@ public class Selector {
 
 		double totalStats = 0;
 		for (Hero hero : picks) {
-			if ((hero.getDamage() + hero.getDamage()) > totalStats) {
+			if ((hero.getDamage() + hero.getSustain()) > totalStats) {
 				pickList = hero.getName();
 				totalStats = hero.getDamage() + hero.getSustain();
 			}
@@ -341,7 +341,7 @@ public class Selector {
 
 		double totalStats = 0;
 		for (Hero hero : picks) {
-			if ((hero.getDamage() + hero.getDamage()) > totalStats) {
+			if ((hero.getDamage() + hero.getSustain()) > totalStats) {
 				pickList = hero.getName();
 				totalStats = hero.getDamage() + hero.getSustain();
 			}
