@@ -39,7 +39,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.1.1");
+		setTitle("Overwatch Hero Selector v1.2");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();
@@ -140,7 +140,7 @@ public class MainScreen extends JFrame {
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-				JToggleButton tglbtnResetTeam = new JToggleButton("Reset Team");
+				JButton tglbtnResetTeam = new JButton("Reset Team");
 				tglbtnResetTeam.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						comboBox.setSelectedItem(comboBox.getItemAt(0));
@@ -176,12 +176,13 @@ public class MainScreen extends JFrame {
 				panel_1.add(btnRandom, BorderLayout.WEST);
 				
 				JButton btnNewButton = new JButton("Auto Team");
-				panel_1.add(btnNewButton, BorderLayout.EAST);
-				tglbtnResetTeam.addActionListener(new ActionListener() {
+				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						autoSelect(comboBox, comboBox_1, comboBox_2, comboBox_3, comboBox_4, comboBox_5);
 						lblNewLabel.setText("Function not yet implemented!");
 					}
 				});
+				panel_1.add(btnNewButton, BorderLayout.EAST);
 	}
 
 	private void startSelection(JComboBox comboBox, JComboBox comboBox_1, JComboBox comboBox_2, JComboBox comboBox_3, JComboBox comboBox_4,
@@ -195,6 +196,19 @@ public class MainScreen extends JFrame {
 		}
 		lblNewLabel.setText("<html>" + output + "</html>");
 
+	}
+	
+	private void autoSelect(JComboBox comboBox, JComboBox comboBox_1, JComboBox comboBox_2, JComboBox comboBox_3, JComboBox comboBox_4,
+			JComboBox comboBox_5) {
+		List<String> heroes = Selector.autoFillHero(comboBox.getSelectedItem().toString(), comboBox_1.getSelectedItem().toString(),
+				comboBox_2.getSelectedItem().toString(), comboBox_3.getSelectedItem().toString(), comboBox_4.getSelectedItem().toString(),
+				comboBox_5.getSelectedItem().toString());
+		comboBox.setSelectedItem(heroes.get(0));
+		comboBox_1.setSelectedItem(heroes.get(1));
+		comboBox_2.setSelectedItem(heroes.get(2));
+		comboBox_3.setSelectedItem(heroes.get(3));
+		comboBox_4.setSelectedItem(heroes.get(4));
+		comboBox_5.setSelectedItem(heroes.get(5));
 	}
 
 }

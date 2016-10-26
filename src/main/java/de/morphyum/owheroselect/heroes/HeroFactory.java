@@ -154,4 +154,12 @@ public class HeroFactory {
 		heroes.add(generateHero("Zenyatta"));
 		return heroes;
 	}
+	
+	public static List<Hero> getStringToHeroList(List<String> inputList){
+		List<Hero> heroes = new ArrayList<Hero>();
+		for (String elem : inputList) {
+			heroes.add(generateHero(elem));
+		}
+		return heroes;
+	}
 }
