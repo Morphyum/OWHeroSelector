@@ -593,6 +593,7 @@ public class HeroFactory {
 		heroes.add(generateHero("Reinhardt"));
 		heroes.add(generateHero("Roadhog"));
 		heroes.add(generateHero("Soldier"));
+		heroes.add(generateHero("Sombra"));
 		heroes.add(generateHero("Symmetra"));
 		heroes.add(generateHero("Torbjörn"));
 		heroes.add(generateHero("Tracer"));
