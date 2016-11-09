@@ -10,112 +10,560 @@ public class HeroFactory {
 		switch (inputHero) {
 
 		case "Genji": {
-			hero = new Hero(0.5, true, false, 0, "Genji", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(false);
+			hero.setName("Genji");
+			hero.setLeftclick(28 * 3 / 1);
+			hero.setRightclick(28 * 3 / 1.33);
+
+			// assume 2 hits for swift
+			hero.setAbility1(50 / 8 * 2);
+			hero.setAbility2(0);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1200);
+			hero.setUltDamage(120 * 6);
+
+			hero.init();
 			break;
 		}
 
 		case "McCree": {
-			hero = new Hero(1.5, false, false, 0, "McCree", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("McCree");
+			hero.setLeftclick(70 * 2);
+			hero.setRightclick(45 * 6);
+
+			hero.setAbility1(0);
+			hero.setAbility2(25);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1200);
+			hero.setUltDamage(250 * 6 * 2);
+
+			hero.init();
 			break;
+
 		}
 
 		case "Pharah": {
-			hero = new Hero(0.5, false, false, 0, "Pharah", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Pharah");
+			hero.setLeftclick(120 * 1.1);
+			hero.setRightclick(0);
+
+			// assume 2 hits for swift
+			hero.setAbility1(0);
+			hero.setAbility2(0);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1500);
+			hero.setUltDamage(40 * 90);
+
+			hero.init();
 			break;
+
 		}
 
 		case "Reaper": {
-			hero = new Hero(1.5, false, false, 0.25, "Reaper", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(true);
+			hero.setName("Reaper");
+			hero.setLeftclick(20 * 7 * 2);
+			hero.setRightclick(0);
+
+			// assume 2 hits for swift
+			hero.setAbility1(0);
+			hero.setAbility2(0);
+
+			hero.setSustain(250);
+			// 2 orbs per fight every 30 seconds fight
+			hero.setSelfheal(50 * 2 / 30);
+			hero.setHeal(0);
+			hero.setUltCharge(1500);
+			// assume 2 targets
+			hero.setUltDamage(510 * 2);
+			hero.init();
 			break;
+
 		}
 
 		case "Soldier": {
-			hero = new Hero(1, false, false, 0.25, "Soldier", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Soldier");
+			hero.setLeftclick(17 * 10);
+			// rightclick is an ability will be part of ability 1
+			hero.setRightclick(0);
+
+			// Rockets instead of sprint assume 2 hits
+			hero.setAbility1(120 / 8 * 2);
+			// Ability 2 is healing
+			hero.setAbility2(0);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			hero.setHeal(40 / 5);
+			hero.setUltCharge(1660);
+			hero.setUltDamage(hero.getLeftclick() * 6);
+			hero.init();
 			break;
+
 		}
 
 		case "Tracer": {
-			hero = new Hero(1.5, false, false, 0.25, "Tracer", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Tracer");
+			hero.setLeftclick(12 * 20);
+			hero.setRightclick(0);
+
+			hero.setAbility1(0);
+			hero.setAbility2(0);
+
+			hero.setSustain(150);
+			// recall as selfheal
+			hero.setSelfheal(100 / 12);
+			hero.setHeal(0);
+			hero.setUltCharge(900);
+			hero.setUltDamage(400 * 2);
+			hero.init();
 			break;
+
 		}
 
 		case "Bastion": {
-			hero = new Hero(1.5, false, false, 0.25, "Bastion", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Bastion");
+			// recon
+			hero.setLeftclick(20 * 8);
+			// sentry
+			hero.setRightclick(15 * 35);
+
+			hero.setAbility1(0);
+			hero.setAbility2(0);
+
+			hero.setSustain(200 + (100 * 1.5));
+			// repair
+			hero.setSelfheal(75/2);
+			hero.setHeal(0);
+			hero.setUltCharge(1650);
+			hero.setUltDamage(205 * 8 * 1.11);
+			hero.init();
 			break;
+
 		}
 
 		case "Hanzo": {
-			hero = new Hero(0.5, false, false, 0, "Hanzo", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Hanzo");
+			hero.setLeftclick(125);
+			hero.setRightclick(0);
+
+			hero.setAbility1(0);
+			hero.setAbility2(75 * 6 / 10);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1200);
+			// 2heroes get hit for 2 seconds
+			hero.setUltDamage(200 * 2 * 2);
+			hero.init();
 			break;
+
 		}
 
 		case "Junkrat": {
-			hero = new Hero(1, false, false, 0, "Junkrat", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Junkrat");
+			hero.setLeftclick(120 * 1.66);
+			hero.setRightclick(0);
+
+			hero.setAbility1(120 / 8);
+			hero.setAbility2(80 / 10);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1250);
+			hero.setUltDamage(600 * 2);
+			hero.init();
 			break;
+
 		}
 
 		case "Mei": {
-			hero = new Hero(0.5, false, false, 0.5, "Mei", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Mei");
+			hero.setLeftclick(45);
+			hero.setRightclick(75);
+
+			// assume 2 hits for swift
+			hero.setAbility1(50 / 8 * 2);
+			hero.setAbility2(0);
+
+			hero.setSustain(250 + (2500 / 10));
+			// Cyro
+			hero.setSelfheal(150 / 4 / 12);
+			hero.setHeal(0);
+			hero.setUltCharge(1000);
+			// assume 2 hero frozen
+			hero.setUltDamage(97 * 5 * 2);
+			hero.init();
 			break;
+
 		}
 
 		case "Torbjörn": {
-			hero = new Hero(1.25, false, false, 0.25, "Torbjörn", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Torbjörn");
+			hero.setLeftclick(70 * 2);
+			hero.setRightclick(15 * 10 * 1.33);
+
+			// turet lv for average
+			hero.setAbility1(14 * 2);
+			hero.setAbility2(0);
+			
+			double ultSustain = (300 * 1.5) / (1300 / (5 + hero.getRightclick() + hero.getAbility1()));
+			// assume 2 friends are shielded in average
+			hero.setSustain(200 + (75 * 2 * 1.5) + ultSustain);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1300);
+			hero.setUltDamage((hero.getRightclick() + hero.getAbility1()) * 12 * 1.5);
+			hero.init();
 			break;
+
 		}
 
 		case "Widowmaker": {
-			hero = new Hero(0.75, false, false, 0, "Widowmaker", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Widowmaker");
+			hero.setLeftclick(120 / 1.4);
+			hero.setRightclick(13 * 10);
+
+			// assume 2 hits for swift
+			hero.setAbility1(0);
+			hero.setAbility2(15 * 5 / 15);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1100);
+			hero.setUltDamage(0);
+			hero.init();
 			break;
+
 		}
 
 		case "D.Va": {
-			hero = new Hero(1, true, true, 0.5, "D.Va", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(true);
+			hero.setName("D.Va");
+			hero.setLeftclick(3 * 8 * 6.67);
+			hero.setRightclick(0);
+
+			// assume 2 hits
+			hero.setAbility1(25 * 2 / 5);
+			hero.setAbility2(0);
+
+			hero.setSustain(100 + (400 * 1.5));
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1100);
+			// assume 2 hits
+			hero.setUltDamage(1000 * 2);
+			hero.init();
 			break;
+
 		}
 
 		case "Reinhardt": {
-			hero = new Hero(0.5, true, true, 0.5, "Reinhardt", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(true);
+			hero.setName("Reinhardt");
+			// assume 2 hits
+			hero.setLeftclick(75 * 2);
+			hero.setRightclick(0);
+
+			// assume 2 hits for swift
+			hero.setAbility1(300 / 10);
+			// assume 2 hits
+			hero.setAbility2(100 / 6 * 2);
+
+			//Balance shield values
+			hero.setSustain(300 + (200 * 1.5) + 2000/10);
+			// Shield heal
+			hero.setSelfheal(225/10);
+			hero.setHeal(0);
+			hero.setUltCharge(1100);
+			// assume 2 hits
+			hero.setUltDamage(50 * 2);
+			hero.init();
 			break;
+
 		}
 
 		case "Roadhog": {
-			hero = new Hero(1.5, false, false, 0.75, "Roadhog", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Roadhog");
+			hero.setLeftclick(9 * 25);
+			hero.setRightclick(9 * 25);
+
+			// assume 2 hits for swift
+			hero.setAbility1(0);
+			hero.setAbility2(30 / 6);
+
+			hero.setSustain(600);
+			hero.setSelfheal(300 / 8);
+			hero.setHeal(0);
+			hero.setUltCharge(1600);
+			hero.setUltDamage(5000);
+			hero.init();
 			break;
+
 		}
 
 		case "Winston": {
-			hero = new Hero(0, true, false, 0.5, "Winston", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(true);
+			hero.setName("Winston");
+			hero.setLeftclick(60);
+			hero.setRightclick(0);
+
+			// assume 2 hits for swift
+			hero.setAbility1(50 / 6);
+			hero.setAbility2(0);
+
+			double ultSustain = 500 / (1100 / (5 + hero.getLeftclick() + hero.getAbility1()));
+			//
+			hero.setSustain(400 + (100 * 1.5) + (800 / 13) + ultSustain);
+			hero.setSelfheal(0);
+			hero.setHeal(0);
+			hero.setUltCharge(1100);
+			hero.setUltDamage(40 * 10);
+			hero.init();
 			break;
+
 		}
 
 		case "Zarya": {
-			hero = new Hero(1, true, false, 1, "Zarya", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(false);
+			hero.setName("Zarya");
+			// assume 50% energy
+			hero.setLeftclick(95 * 1.5);
+			// assume 50% energy and 2 hits
+			hero.setRightclick(45 * 2 * 1.5);
+
+			// assume 2 hits for swift
+			hero.setAbility1(50 / 8 * 2);
+			hero.setAbility2(0);
+
+			hero.setSustain(200 + 200 + (200 / 10) + (200 / 8));
+			hero.setSelfheal(20.5);
+			hero.setHeal(0);
+			hero.setUltCharge(1500);
+			hero.setUltDamage(22);
+			hero.init();
 			break;
+
 		}
 
 		case "Ana": {
-			hero = new Hero(0.75, true, false, 1, "Ana", true);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(false);
+			hero.setName("Ana");
+			hero.setLeftclick(80 * 1.2);
+			hero.setRightclick(0);
+
+			// assume 2 hits for swift
+			hero.setAbility1(5 / 12);
+			hero.setAbility2(60);
+			// average sustain 200 assumed
+			double ultSustain = 200 / (1300 / (5 + hero.getLeftclick() + hero.getAbility2()));
+			hero.setSustain(200 + ultSustain);
+			hero.setSelfheal(0);
+			// grenade up time can be 50% of the whole time
+			hero.setHeal((70 * 1.2 * 1.5) + 100 / 10);
+			hero.setUltCharge(1300);
+			// average dps assumed 100
+			hero.setUltDamage(100 * 1.5 * 8);
+			hero.init();
 			break;
+
 		}
 
 		case "Lucio": {
-			hero = new Hero(0, true, true, 1, "Lucio", true);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(true);
+			hero.setName("Lucio");
+			hero.setLeftclick(16 * 4);
+			hero.setRightclick(0);
+
+			// rightclick
+			hero.setAbility1(25 / 4);
+			hero.setAbility2(0);
+			double ultSustain = 500 * 6 / (2100 / (5 + hero.getLeftclick() + hero.getAbility1()));
+			hero.setSustain(200 + ultSustain);
+			hero.setSelfheal(0);
+			// assume 3 people healed per time + amp
+			hero.setHeal(12.5 * 3 + 40*3*3/12);
+			hero.setUltCharge(2100);
+			hero.setUltDamage(0);
+			hero.init();
 			break;
+
 		}
 
 		case "Mercy": {
-			hero = new Hero(0.25, false, true, 1.5, "Mercy", true);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(true);
+			hero.setName("Mercy");
+			hero.setLeftclick(20 * 5);
+			// damage boost assuming 100 average dps
+			hero.setRightclick(150 * 1.3 - 150);
+
+			// assume 2 hits for swift
+			hero.setAbility1(0);
+			hero.setAbility2(0);
+
+			// assume 3 ressuracts with 200 average health
+			hero.setSustain(200);
+			hero.setSelfheal(20);
+			double ultHeal = 200 * 3 / (1300 / (5 + 60 + hero.getLeftclick()));
+			hero.setHeal(60+ultHeal);
+			hero.setUltCharge(1300);
+			hero.setUltDamage(0);
+			hero.init();
 			break;
+
 		}
 
 		case "Symmetra": {
-			hero = new Hero(0.5, false, false, 0.25, "Symmetra", false);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(false);
+			hero.setName("Symmetra");
+			hero.setLeftclick(60);
+			hero.setRightclick(125 / 2);
+
+			// assume 1 turrets shooting at all time
+			hero.setAbility1(25);
+			hero.setAbility2(0);
+			// plus whole team shielded
+			hero.setSustain(100 + 100 + 150);
+			hero.setSelfheal(20.5);
+			hero.setHeal(0);
+			hero.setUltCharge(800);
+			hero.setUltDamage(0);
+			hero.init();
 			break;
 		}
 
 		case "Zenyatta": {
-			hero = new Hero(0.75, false, true, 0.5, "Zenyatta", true);
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(false);
+			hero.setOffUltOut(true);
+			hero.setName("Zenyatta");
+			hero.setLeftclick(46*2.5);
+			hero.setRightclick(230/4);
+
+			// assume 150 average damage
+			hero.setAbility1(150 * 1.3 -150);
+			hero.setAbility2(0);
+
+			hero.setSustain(50 +150);
+			hero.setSelfheal(20.5);
+			//assume 2 heal targets while ult
+			double ultHeal = 300 * 6 * 2 / (1650 / (5 + 30));
+			hero.setHeal(30 + ultHeal);
+			hero.setUltCharge(1650);
+			hero.setUltDamage(0);
+			hero.init();
+			break;
+		}
+		
+		case "Sombra": {
+			//PTR PTR PTR
+			// dps per ability
+			hero = new Hero();
+			hero.setInitiation(true);
+			hero.setOffUltOut(false);
+			hero.setName("Sombra");
+			hero.setLeftclick(8*20);
+			hero.setRightclick(0);
+
+			
+			hero.setAbility1(0);
+			hero.setAbility2(0);
+
+			hero.setSustain(200);
+			hero.setSelfheal(0);
+			
+			hero.setHeal(250/4.5/2);
+			hero.setUltCharge(0);
+			//assume average damage = Reinhardt shield destroyed
+			hero.setUltDamage(2000);
+			hero.init();
 			break;
 		}
 
@@ -127,8 +575,8 @@ public class HeroFactory {
 		return hero;
 
 	}
-	
-	public static List<Hero> getAllHeroes(){
+
+	public static List<Hero> getAllHeroes() {
 		List<Hero> heroes = new ArrayList<Hero>();
 		heroes.add(generateHero("Ana"));
 		heroes.add(generateHero("Bastion"));
@@ -154,8 +602,8 @@ public class HeroFactory {
 		heroes.add(generateHero("Zenyatta"));
 		return heroes;
 	}
-	
-	public static List<Hero> getStringToHeroList(List<String> inputList){
+
+	public static List<Hero> getStringToHeroList(List<String> inputList) {
 		List<Hero> heroes = new ArrayList<Hero>();
 		for (String elem : inputList) {
 			heroes.add(generateHero(elem));
