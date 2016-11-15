@@ -40,7 +40,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-		setTitle("Overwatch Hero Selector v1.3.2");
+		setTitle("Overwatch Hero Selector v1.3.3");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 440);
 		contentPane = new JPanel();
@@ -158,17 +158,17 @@ public class MainScreen extends JFrame {
 		btnRandom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Random rand = new Random();
-				int randomhero = rand.nextInt(21) + 1;
+				int randomhero = rand.nextInt(23) + 1;
 				comboBox.setSelectedItem(comboBox.getItemAt(randomhero));
-				randomhero = rand.nextInt(22) + 1;
+				randomhero = rand.nextInt(23) + 1;
 				comboBox_1.setSelectedItem(comboBox_1.getItemAt(randomhero));
-				randomhero = rand.nextInt(22) + 1;
+				randomhero = rand.nextInt(23) + 1;
 				comboBox_2.setSelectedItem(comboBox_2.getItemAt(randomhero));
-				randomhero = rand.nextInt(22) + 1;
+				randomhero = rand.nextInt(23) + 1;
 				comboBox_3.setSelectedItem(comboBox_3.getItemAt(randomhero));
-				randomhero = rand.nextInt(22) + 1;
+				randomhero = rand.nextInt(23) + 1;
 				comboBox_4.setSelectedItem(comboBox_4.getItemAt(randomhero));
-				randomhero = rand.nextInt(22) + 1;
+				randomhero = rand.nextInt(23) + 1;
 				comboBox_5.setSelectedItem(comboBox_5.getItemAt(randomhero));
 				lblNewLabel.setText("Team Randomized!");
 			}
