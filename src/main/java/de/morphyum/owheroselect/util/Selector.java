@@ -31,7 +31,7 @@ public class Selector {
 	// + HeroFactory.generateHero("Lucio").getHealing();
 
 	final static double MIN_DAMAGE = 3;
-	final static double MIN_SUSTAIN = 2;
+	final static double MIN_SUSTAIN = 2.5;
 	final static double MIN_HEALING = 1.75;
 
 	public static List<String> pickHero(String string, String string2, String string3, String string4, String string5, String string6) {
@@ -94,7 +94,7 @@ public class Selector {
 		List<Hero> heroList = HeroFactory.getAllHeroes();
 		List<String> pickList = new ArrayList<String>();
 		Boolean perfectTeam = true;
-		if (totalHealing < MIN_HEALING) {
+		if (totalHealing == 0) {
 			heroList = filterHealerHeroes(heroList, MIN_HEALING - totalHealing, inputList);
 			pickList.add(0, "Need Healer: ");
 			perfectTeam = false;
@@ -119,13 +119,35 @@ public class Selector {
 			pickList.add(0, "Need More Sustain: ");
 			perfectTeam = false;
 		}
+		if (totalHealing < MIN_HEALING && totalHealing != 0) {
+			heroList = filterHealerHeroes(heroList, MIN_HEALING - totalHealing, inputList);
+			pickList.add(0, "Need Healer: ");
+			perfectTeam = false;
+		}
 
 		if (heroList.isEmpty()) {
 			return null;
 		}
 
 		if (perfectTeam) {
+			List<String> allheroes = new ArrayList<String>();
+			for (Hero hero : HeroFactory.getAllHeroes()) {
+				if (!inputList.contains(hero.getName())) {
+					allheroes.add(hero.getName());
+				}
+			}
 			pickList.add("Perfect Setup!");
+			totalHealing *= (MIN_DAMAGE + MIN_SUSTAIN) / MIN_HEALING;
+			totalSustain *= (MIN_DAMAGE + MIN_HEALING) / MIN_SUSTAIN;
+			totalDamage *= (MIN_HEALING + MIN_SUSTAIN) / MIN_DAMAGE;
+			if ((totalHealing <= totalDamage) && (totalHealing <= totalSustain)) {
+				pickList.add("<br> Suggestion: " + selectBestHealerHero(allheroes));
+			} else if ((totalSustain <= totalHealing) && (totalSustain <= totalDamage)) {
+				pickList.add("<br> Suggestion: " + selectHighestDamageHero(allheroes));
+			} else if ((totalDamage <= totalHealing) && (totalDamage <= totalSustain)) {
+				pickList.add("<br> Suggestion: " + selectHighestDamageHero(allheroes));
+			}
+
 		} else {
 			for (Hero hero : heroList) {
 				pickList.add("<br>" + hero.getName());
@@ -138,7 +160,7 @@ public class Selector {
 			double totalSustain, List<String> inputList) {
 		List<Hero> heroList = HeroFactory.getAllHeroes();
 		List<String> pickList = new ArrayList<String>();
-		if (totalHealing < MIN_HEALING) {
+		if (totalHealing == 0) {
 			heroList = filterHealerHeroes(heroList, MIN_HEALING - totalHealing, inputList);
 		}
 		if (totalDamage < MIN_DAMAGE) {
@@ -152,6 +174,9 @@ public class Selector {
 		}
 		if (totalSustain < MIN_SUSTAIN) {
 			heroList = filterSustainHeroes(heroList, MIN_SUSTAIN - totalSustain, inputList);
+		}
+		if (totalHealing < MIN_HEALING) {
+			heroList = filterHealerHeroes(heroList, MIN_HEALING - totalHealing, inputList);
 		}
 
 		if (heroList.isEmpty()) {
@@ -428,7 +453,7 @@ public class Selector {
 	private static List<String> emercencySelect(double totalHealer, double totalDamage, boolean totalInitiation, boolean totalOffUltOut, double totalSustain,
 			List<String> inputList) {
 		List<String> pickList = new ArrayList<String>();
-		if (totalHealer < MIN_HEALING) {
+		if (totalHealer == 0) {
 			pickList = selectHealerHeroes(MIN_HEALING - totalHealer, inputList);
 			if (pickList.isEmpty()) {
 				pickList.add(0, "<br>No Single Hero can Help!! ");
@@ -462,6 +487,13 @@ public class Selector {
 				pickList.add(0, "<br>No Single Hero can Help!! ");
 			} else {
 				pickList.add(0, "<br>No perfect fit, Most Important More Sustain: ");
+			}
+		} else if (totalHealer < MIN_HEALING) {
+			pickList = selectHealerHeroes(MIN_HEALING - totalHealer, inputList);
+			if (pickList.isEmpty()) {
+				pickList.add(0, "<br>No Single Hero can Help!! ");
+			} else {
+				pickList.add(0, "<br>No perfect fit, Most Important Healer: ");
 			}
 		}
 
@@ -541,7 +573,7 @@ public class Selector {
 		List<String> pickList;
 		while (inputList.size() < 6) {
 			pickList = filterHeroesNoOutput(totalHealer, totalDamage, totalInitiation, totalOffUltOut, totalSustain, inputList);
-			if (totalHealer < MIN_HEALING) {
+			if (totalHealer == 0) {
 				Hero hero = HeroFactory.generateHero(selectBestHealerHero(pickList));
 				inputList.add(hero.getName());
 				totalDamage += hero.getDamage();
@@ -583,6 +615,16 @@ public class Selector {
 					totalOffUltOut = true;
 			} else if (totalSustain < MIN_SUSTAIN) {
 				Hero hero = HeroFactory.generateHero(selectHighestSustainHero(pickList));
+				inputList.add(hero.getName());
+				totalDamage += hero.getDamage();
+				totalSustain += hero.getSustain();
+				totalHealer += hero.getHealing();
+				if (hero.getInitiation())
+					totalInitiation = true;
+				if (hero.getOffUltOut())
+					totalOffUltOut = true;
+			} else if (totalHealer < MIN_HEALING) {
+				Hero hero = HeroFactory.generateHero(selectBestHealerHero(pickList));
 				inputList.add(hero.getName());
 				totalDamage += hero.getDamage();
 				totalSustain += hero.getSustain();

@@ -89,6 +89,8 @@ public class Hero {
 		if (ehp > 600)
 			sustain = 1;
 		else if (ehp > 400)
+			sustain = 0.75;
+		else if (ehp > 300)
 			sustain = 0.5;
 		else if (ehp > 200)
 			sustain = 0.25;

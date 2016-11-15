@@ -25,7 +25,7 @@ public class HeroFactory {
 			hero.setSustain(200);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1200);
+			hero.setUltCharge(1200*1.25);
 			hero.setUltDamage(120 * 6);
 
 			hero.init();
@@ -47,7 +47,7 @@ public class HeroFactory {
 			hero.setSustain(200);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1200);
+			hero.setUltCharge(1200*1.25);
 			hero.setUltDamage(250 * 6 * 2);
 
 			hero.init();
@@ -71,7 +71,7 @@ public class HeroFactory {
 			hero.setSustain(200);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1500);
+			hero.setUltCharge(1500*1.25);
 			hero.setUltDamage(40 * 90);
 
 			hero.init();
@@ -96,7 +96,7 @@ public class HeroFactory {
 			// 2 orbs per fight every 30 seconds fight
 			hero.setSelfheal(50 * 2 / 30);
 			hero.setHeal(0);
-			hero.setUltCharge(1500);
+			hero.setUltCharge(1500*1.25);
 			// assume 2 targets
 			hero.setUltDamage(510 * 2);
 			hero.init();
@@ -110,7 +110,7 @@ public class HeroFactory {
 			hero.setInitiation(false);
 			hero.setOffUltOut(false);
 			hero.setName("Soldier");
-			hero.setLeftclick(17 * 10);
+			hero.setLeftclick(20 * 10);
 			// rightclick is an ability will be part of ability 1
 			hero.setRightclick(0);
 
@@ -122,7 +122,7 @@ public class HeroFactory {
 			hero.setSustain(200);
 			hero.setSelfheal(0);
 			hero.setHeal(40 / 5);
-			hero.setUltCharge(1660);
+			hero.setUltCharge(1660*1.25);
 			hero.setUltDamage(hero.getLeftclick() * 6);
 			hero.init();
 			break;
@@ -145,7 +145,7 @@ public class HeroFactory {
 			// recall as selfheal
 			hero.setSelfheal(100 / 12);
 			hero.setHeal(0);
-			hero.setUltCharge(900);
+			hero.setUltCharge(900*1.25);
 			hero.setUltDamage(400 * 2);
 			hero.init();
 			break;
@@ -168,9 +168,9 @@ public class HeroFactory {
 
 			hero.setSustain(200 + (100 * 1.5));
 			// repair
-			hero.setSelfheal(75/2);
+			hero.setSelfheal(75/3);
 			hero.setHeal(0);
-			hero.setUltCharge(1650);
+			hero.setUltCharge(1650*1.25);
 			hero.setUltDamage(205 * 8 * 1.11);
 			hero.init();
 			break;
@@ -192,7 +192,7 @@ public class HeroFactory {
 			hero.setSustain(200);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1200);
+			hero.setUltCharge(1200*1.25);
 			// 2heroes get hit for 2 seconds
 			hero.setUltDamage(200 * 2 * 2);
 			hero.init();
@@ -215,7 +215,7 @@ public class HeroFactory {
 			hero.setSustain(200);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1250);
+			hero.setUltCharge(1250*1.25);
 			hero.setUltDamage(600 * 2);
 			hero.init();
 			break;
@@ -239,7 +239,7 @@ public class HeroFactory {
 			// Cyro
 			hero.setSelfheal(150 / 4 / 12);
 			hero.setHeal(0);
-			hero.setUltCharge(1000);
+			hero.setUltCharge(1000*1.25*1.15);
 			// assume 2 hero frozen
 			hero.setUltDamage(97 * 5 * 2);
 			hero.init();
@@ -260,12 +260,12 @@ public class HeroFactory {
 			hero.setAbility1(14 * 2);
 			hero.setAbility2(0);
 			
-			double ultSustain = (300 * 1.5) / (1300 / (5 + hero.getRightclick() + hero.getAbility1()));
-			// assume 2 friends are shielded in average
-			hero.setSustain(200 + (75 * 2 * 1.5) + ultSustain);
+			double ultSustain = (300 * 1.5) / (1300*1.25 / (5 + hero.getRightclick() + hero.getAbility1()));
+			// assume 2.5 friends are shielded in average
+			hero.setSustain(200 + (75 * 2.5 * 1.5) + ultSustain);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1300);
+			hero.setUltCharge(1300*1.25);
 			hero.setUltDamage((hero.getRightclick() + hero.getAbility1()) * 12 * 1.5);
 			hero.init();
 			break;
@@ -278,7 +278,7 @@ public class HeroFactory {
 			hero.setInitiation(false);
 			hero.setOffUltOut(false);
 			hero.setName("Widowmaker");
-			hero.setLeftclick(120 / 1.4);
+			hero.setLeftclick(120 / 1.12);
 			hero.setRightclick(13 * 10);
 
 			// assume 2 hits for swift
@@ -288,7 +288,7 @@ public class HeroFactory {
 			hero.setSustain(200);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1100);
+			hero.setUltCharge(1100*1.25);
 			hero.setUltDamage(0);
 			hero.init();
 			break;
@@ -308,7 +308,7 @@ public class HeroFactory {
 			hero.setAbility1(25 * 2 / 5);
 			hero.setAbility2(0);
 
-			hero.setSustain(100 + (400 * 1.5));
+			hero.setSustain(200 + (400 * 1.5));
 			hero.setSelfheal(0);
 			hero.setHeal(0);
 			hero.setUltCharge(1100);
@@ -339,7 +339,7 @@ public class HeroFactory {
 			// Shield heal
 			hero.setSelfheal(225/10);
 			hero.setHeal(0);
-			hero.setUltCharge(1100);
+			hero.setUltCharge(1100*1.25);
 			// assume 2 hits
 			hero.setUltDamage(50 * 2);
 			hero.init();
@@ -363,7 +363,7 @@ public class HeroFactory {
 			hero.setSustain(600);
 			hero.setSelfheal(300 / 8);
 			hero.setHeal(0);
-			hero.setUltCharge(1600);
+			hero.setUltCharge(1600*1.25);
 			hero.setUltDamage(5000);
 			hero.init();
 			break;
@@ -388,7 +388,7 @@ public class HeroFactory {
 			hero.setSustain(400 + (100 * 1.5) + (800 / 13) + ultSustain);
 			hero.setSelfheal(0);
 			hero.setHeal(0);
-			hero.setUltCharge(1100);
+			hero.setUltCharge(1100*1.25);
 			hero.setUltDamage(40 * 10);
 			hero.init();
 			break;
@@ -401,10 +401,10 @@ public class HeroFactory {
 			hero.setInitiation(true);
 			hero.setOffUltOut(false);
 			hero.setName("Zarya");
-			// assume 50% energy
-			hero.setLeftclick(95 * 1.5);
-			// assume 50% energy and 2 hits
-			hero.setRightclick(45 * 2 * 1.5);
+			// assume 35% energy
+			hero.setLeftclick(95 * 1.35);
+			// assume 35% energy and 2 hits
+			hero.setRightclick(45 * 2 * 1.35);
 
 			// assume 2 hits for swift
 			hero.setAbility1(50 / 8 * 2);
@@ -413,7 +413,7 @@ public class HeroFactory {
 			hero.setSustain(200 + 200 + (200 / 10) + (200 / 8));
 			hero.setSelfheal(20.5);
 			hero.setHeal(0);
-			hero.setUltCharge(1500);
+			hero.setUltCharge(1500*1.25);
 			hero.setUltDamage(22);
 			hero.init();
 			break;
@@ -423,7 +423,7 @@ public class HeroFactory {
 		case "Ana": {
 			// dps per ability
 			hero = new Hero();
-			hero.setInitiation(true);
+			hero.setInitiation(false);
 			hero.setOffUltOut(false);
 			hero.setName("Ana");
 			hero.setLeftclick(80 * 1.2);
@@ -438,7 +438,7 @@ public class HeroFactory {
 			hero.setSelfheal(0);
 			// grenade up time can be 50% of the whole time
 			hero.setHeal((70 * 1.2 * 1.5) + 100 / 10);
-			hero.setUltCharge(1300);
+			hero.setUltCharge(1300*1.25);
 			// average dps assumed 100
 			hero.setUltDamage(100 * 1.5 * 8);
 			hero.init();
@@ -462,8 +462,8 @@ public class HeroFactory {
 			hero.setSustain(200 + ultSustain);
 			hero.setSelfheal(0);
 			// assume 3 people healed per time + amp
-			hero.setHeal(12.5 * 3 + 40*3*3/12);
-			hero.setUltCharge(2100);
+			hero.setHeal(12.5 * 3 + 36*3*3/12);
+			hero.setUltCharge(2100*1.25);
 			hero.setUltDamage(0);
 			hero.init();
 			break;
@@ -489,7 +489,7 @@ public class HeroFactory {
 			hero.setSelfheal(20);
 			double ultHeal = 200 * 3 / (1300 / (5 + 60 + hero.getLeftclick()));
 			hero.setHeal(60+ultHeal);
-			hero.setUltCharge(1300);
+			hero.setUltCharge(1300*1.25);
 			hero.setUltDamage(0);
 			hero.init();
 			break;
@@ -512,7 +512,7 @@ public class HeroFactory {
 			hero.setSustain(100 + 100 + 150);
 			hero.setSelfheal(20.5);
 			hero.setHeal(0);
-			hero.setUltCharge(800);
+			hero.setUltCharge(800*1.25);
 			hero.setUltDamage(0);
 			hero.init();
 			break;
@@ -536,7 +536,7 @@ public class HeroFactory {
 			//assume 2 heal targets while ult
 			double ultHeal = 300 * 6 * 2 / (1650 / (5 + 30));
 			hero.setHeal(30 + ultHeal);
-			hero.setUltCharge(1650);
+			hero.setUltCharge(1650*1.25);
 			hero.setUltDamage(0);
 			hero.init();
 			break;
