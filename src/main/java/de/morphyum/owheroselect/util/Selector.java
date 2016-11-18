@@ -8,31 +8,31 @@ import de.morphyum.owheroselect.heroes.HeroFactory;
 
 public class Selector {
 
-	// final static double MIN_DAMAGE =
-	// HeroFactory.generateHero("Reinhardt").getDamage() +
-	// HeroFactory.generateHero("Zarya").getDamage()
-	// + HeroFactory.generateHero("McCree").getDamage() +
-	// HeroFactory.generateHero("Genji").getDamage() +
-	// HeroFactory.generateHero("Ana").getDamage()
-	// + HeroFactory.generateHero("Lucio").getDamage();
-	// final static double MIN_SUSTAIN =
-	// HeroFactory.generateHero("Reinhardt").getSustain() +
-	// HeroFactory.generateHero("Zarya").getSustain()
-	// + HeroFactory.generateHero("McCree").getSustain() +
-	// HeroFactory.generateHero("Genji").getSustain() +
-	// HeroFactory.generateHero("Ana").getSustain()
-	// + HeroFactory.generateHero("Lucio").getSustain();
-	// final static double MIN_HEALING =
-	// HeroFactory.generateHero("Reinhardt").getHealing() +
-	// HeroFactory.generateHero("Zarya").getHealing()
-	// + HeroFactory.generateHero("McCree").getHealing() +
-	// HeroFactory.generateHero("Genji").getHealing() +
-	// HeroFactory.generateHero("Ana").getHealing()
-	// + HeroFactory.generateHero("Lucio").getHealing();
-
-	final static double MIN_DAMAGE = 3;
-	final static double MIN_SUSTAIN = 2.5;
-	final static double MIN_HEALING = 1.75;
+	 final static double MIN_DAMAGE =
+	 HeroFactory.generateHero("Reinhardt").getDamage() +
+	 HeroFactory.generateHero("Zarya").getDamage()
+	 + HeroFactory.generateHero("McCree").getDamage() +
+	 HeroFactory.generateHero("Genji").getDamage() +
+	 HeroFactory.generateHero("Ana").getDamage()
+	 + HeroFactory.generateHero("Lucio").getDamage();
+	 final static double MIN_SUSTAIN =
+	 HeroFactory.generateHero("Reinhardt").getSustain() +
+	 HeroFactory.generateHero("Zarya").getSustain()
+	 + HeroFactory.generateHero("McCree").getSustain() +
+	 HeroFactory.generateHero("Genji").getSustain() +
+	 HeroFactory.generateHero("Ana").getSustain()
+	 + HeroFactory.generateHero("Lucio").getSustain();
+	 final static double MIN_HEALING =
+	 HeroFactory.generateHero("Reinhardt").getHealing() +
+	 HeroFactory.generateHero("Zarya").getHealing()
+	 + HeroFactory.generateHero("McCree").getHealing() +
+	 HeroFactory.generateHero("Genji").getHealing() +
+	 HeroFactory.generateHero("Ana").getHealing()
+	 + HeroFactory.generateHero("Lucio").getHealing();
+//
+//	final static double MIN_DAMAGE = 3;
+//	final static double MIN_SUSTAIN = 2.75;
+//	final static double MIN_HEALING = 1.75;
 
 	public static List<String> pickHero(String string, String string2, String string3, String string4, String string5, String string6) {
 		List<String> inputList = new ArrayList<String>();

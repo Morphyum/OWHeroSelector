@@ -256,7 +256,7 @@ public class HeroFactory {
 			hero.setLeftclick(70 * 2);
 			hero.setRightclick(15 * 10 * 1.33);
 
-			// turet lv for average
+			// turet lv 2 for average
 			hero.setAbility1(14 * 2);
 			hero.setAbility2(0);
 			
@@ -329,7 +329,6 @@ public class HeroFactory {
 			hero.setLeftclick(75 * 2);
 			hero.setRightclick(0);
 
-			// assume 2 hits for swift
 			hero.setAbility1(300 / 10);
 			// assume 2 hits
 			hero.setAbility2(100 / 6 * 2);
@@ -356,7 +355,6 @@ public class HeroFactory {
 			hero.setLeftclick(9 * 25);
 			hero.setRightclick(9 * 25);
 
-			// assume 2 hits for swift
 			hero.setAbility1(0);
 			hero.setAbility2(30 / 6);
 
@@ -379,7 +377,6 @@ public class HeroFactory {
 			hero.setLeftclick(60);
 			hero.setRightclick(0);
 
-			// assume 2 hits for swift
 			hero.setAbility1(50 / 6);
 			hero.setAbility2(0);
 
@@ -399,15 +396,14 @@ public class HeroFactory {
 			// dps per ability
 			hero = new Hero();
 			hero.setInitiation(true);
-			hero.setOffUltOut(false);
+			hero.setOffUltOut(true);
 			hero.setName("Zarya");
-			// assume 35% energy
-			hero.setLeftclick(95 * 1.35);
-			// assume 35% energy and 2 hits
-			hero.setRightclick(45 * 2 * 1.35);
+			// assume 40% energy
+			hero.setLeftclick(95 * 1.4);
+			// assume 40% energy and 2 hits
+			hero.setRightclick(45 * 2 * 1.4);
 
-			// assume 2 hits for swift
-			hero.setAbility1(50 / 8 * 2);
+			hero.setAbility1(0);
 			hero.setAbility2(0);
 
 			hero.setSustain(200 + 200 + (200 / 10) + (200 / 8));
@@ -429,11 +425,10 @@ public class HeroFactory {
 			hero.setLeftclick(80 * 1.2);
 			hero.setRightclick(0);
 
-			// assume 2 hits for swift
 			hero.setAbility1(5 / 12);
 			hero.setAbility2(60);
 			// average sustain 200 assumed
-			double ultSustain = 200 / (1300 / (5 + hero.getLeftclick() + hero.getAbility2()));
+			double ultSustain = (200*1.5) / ((1300*1.25) / (5 + hero.getLeftclick() + hero.getAbility2()));
 			hero.setSustain(200 + ultSustain);
 			hero.setSelfheal(0);
 			// grenade up time can be 50% of the whole time
@@ -477,8 +472,8 @@ public class HeroFactory {
 			hero.setOffUltOut(true);
 			hero.setName("Mercy");
 			hero.setLeftclick(20 * 5);
-			// damage boost assuming 100 average dps
-			hero.setRightclick(150 * 1.3 - 150);
+			// damage boost assuming 120 average dps
+			hero.setRightclick(120 * 1.3 - 120);
 
 			// assume 2 hits for swift
 			hero.setAbility1(0);
@@ -527,8 +522,8 @@ public class HeroFactory {
 			hero.setLeftclick(46*2.5);
 			hero.setRightclick(230/4);
 
-			// assume 150 average damage
-			hero.setAbility1(150 * 1.3 -150);
+			// assume 120 average damage
+			hero.setAbility1(120 * 1.3 - 120);
 			hero.setAbility2(0);
 
 			hero.setSustain(50 +150);
